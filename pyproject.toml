@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "n1914a-python"
+version = "1.0.1"
+description = "Python driver and CLI for the Keysight N1914A RF power meter."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [
+    { name = "Patricio Alarcón Díaz", email = "PatrickADz@users.noreply.github.com" },
+]
+keywords = ["scpi", "visa", "instrumentation", "radio-astronomy", "keysight", "power-meter"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering",
+]
+dependencies = [
+    "pyvisa>=1.13",
+    "pyvisa-py>=0.7",
+]
+
+[project.optional-dependencies]
+plot = ["matplotlib>=3.5"]
+dev = ["pytest>=7.0", "matplotlib>=3.5"]
+
+[project.scripts]
+n1914a-cli = "n1914a.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/PatrickADz/keysight-n1914a-python"
+
+[tool.setuptools.packages.find]
+include = ["n1914a*"]
